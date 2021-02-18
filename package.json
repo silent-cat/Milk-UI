@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/silent-cat/Milk-UI/issues"
   },
-  "homepage": "https://github.com/silent-cat/Milk-UI#readme"
+  "homepage": "https://github.com/silent-cat/Milk-UI#readme",
+  "dependencies": {
+    "vue": "^2.6.12"
+  }
 }
