@@ -1,0 +1,19 @@
+{
+  "name": "milk-ui",
+  "version": "1.0.0",
+  "description": "Milk UI组件库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silent-cat/Milk-UI.git"
+  },
+  "author": "silent-cat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/silent-cat/Milk-UI/issues"
+  },
+  "homepage": "https://github.com/silent-cat/Milk-UI#readme"
+}
