@@ -6,13 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milk UI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <m-button></m-button>
+        <m-button @click="loading1=!loading1" :loading="loading1">
+            按钮1
+        </m-button>
+        <m-button icon="left">按钮2</m-button>
+        <m-button icon="right" icon-position="right">按钮2</m-button>
+        <m-button loading>加载</m-button>
+        <m-button :loading="true">加载</m-button>
+        <m-button :loading="false">加载</m-button>
+
+
+        <m-button-group>
+            <m-button icon="left">上一页</m-button>
+            <m-button>组合1</m-button>
+            <m-button icon="right" icon-position="right">下一页</m-button>
+        </m-button-group>
     </div>
 </body>
 <script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_2377597_nc1qxf7vlm.js"></script>
 
 </html>
