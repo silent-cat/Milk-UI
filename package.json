@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/silent-cat/Milk-UI#readme",
   "dependencies": {
-    "and": "^0.0.3",
     "node-sass": "^5.0.0",
     "sass": "^1.32.8",
     "vue": "^2.6.12",
@@ -25,6 +24,7 @@
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.2.0",
+    "chai": "^4.3.0",
     "parcel-bundler": "^1.12.4",
     "vue-template-compiler": "^2.6.12"
   },
