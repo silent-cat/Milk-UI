@@ -13,7 +13,10 @@ new Vue({
   },
 });
 
-import { expect } from "chai";
+import chai, { expect } from "chai";
+
+import spies from "chai-spies";
+chai.use(spies);
 // 测试button的icon
 
 {
@@ -91,19 +94,39 @@ import { expect } from "chai";
   vm.$destroy();
 }
 // 测试click
+// {
+//   const Constructor = Vue.extend(Button);
+//   const vm = new Constructor({
+//     propsData: {
+//       icon: "left",
+//     },
+//   });
+//   vm.$mount();
+//   vm.$on("click", function () {
+//     console.log(1);
+//   });
+//   let button = vm.$el;
+//   button.click();
+//   vm.$el.remove();
+//   vm.$destroy();
+// }
+//使用chai-spy
 {
+  //把Button对象转为构造函数
   const Constructor = Vue.extend(Button);
+  //实例化一个button
   const vm = new Constructor({
+    //使用propsData传组件属性
     propsData: {
       icon: "left",
     },
   });
   vm.$mount();
-  vm.$on("click", function () {
-    console.log(1);
-  });
+  let spy = chai.spy(function () {});
+  vm.$on("click", spy);
+  //找到button的use标签
   let button = vm.$el;
   button.click();
-  vm.$el.remove();
-  vm.$destroy();
+  //点击后期待调用间谍
+  expect(spy).to.have.been.called();
 }
