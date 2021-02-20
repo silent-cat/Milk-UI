@@ -27,75 +27,73 @@ import { expect } from "chai";
       icon: "left",
     },
   });
-  // 将vm挂载到#test
+  // 将vm挂载到页面的元素上
   vm.$mount(div);
+  // 获取到use标签
   let useElement = vm.$el.querySelector("use");
+  // 获取到href属性
   let href = useElement.getAttribute("xlink:href");
   expect(href).to.eq("#m-left");
+  vm.$el.remove();
+  vm.$destroy();
 }
 // 测试button的loading
 {
   const div = document.createElement("div");
   document.body.appendChild(div);
-  // 将Button对象转为构造函数
   const Constructor = Vue.extend(Button);
-  // 实例化
   let vm = new Constructor({
     propsData: {
       icon: "left",
       loading: true,
     },
   });
-  // 将vm挂载到#test
   vm.$mount(div);
   let useElement = vm.$el.querySelector("use");
   let href = useElement.getAttribute("xlink:href");
   expect(href).to.eq("#m-loading");
+  vm.$el.remove();
+  vm.$destroy();
 }
-// 测试iconPosition为left,icon的order为1
+//  测试未传iconPosition,icon的order为1
 {
   const div = document.createElement("div");
   document.body.appendChild(div);
-  // 将Button对象转为构造函数
   const Constructor = Vue.extend(Button);
-  // 实例化
   let vm = new Constructor({
     propsData: {
       icon: "left",
     },
   });
-  // 将vm挂载到#test
   vm.$mount(div);
   let svg = vm.$el.querySelector("svg");
   let { order } = window.getComputedStyle(svg);
   expect(order).to.eq("1");
+  vm.$el.remove();
+  vm.$destroy();
 }
 // 测试iconPosition为right,icon的order为2
 {
   const div = document.createElement("div");
   document.body.appendChild(div);
-  // 将Button对象转为构造函数
   const Constructor = Vue.extend(Button);
-  // 实例化
   let vm = new Constructor({
     propsData: {
       icon: "left",
       iconPosition: "right",
     },
   });
-  // 将vm挂载到#test
   vm.$mount(div);
   let svg = vm.$el.querySelector("svg");
   let { order } = window.getComputedStyle(svg);
   expect(order).to.eq("2");
+  vm.$el.remove();
+  vm.$destroy();
 }
 // 测试click
 {
-  //把Button对象转为构造函数
   const Constructor = Vue.extend(Button);
-  //实例化一个button
   const vm = new Constructor({
-    //使用propsData传组件属性
     propsData: {
       icon: "left",
     },
@@ -104,7 +102,8 @@ import { expect } from "chai";
   vm.$on("click", function () {
     console.log(1);
   });
-  //找到button的use标签
   let button = vm.$el;
   button.click();
+  vm.$el.remove();
+  vm.$destroy();
 }
