@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - '12'
+//- '9' 可以多版本测试
+addons:
+  chrome: stable
+sudo: required
+before_script:
+  - 'sudo chown root /opt/google/chrome/chrome-sandbox'
+  - 'sudo chmod 4775 /opt/google/chrome/chrome-sandbox'
