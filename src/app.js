@@ -14,8 +14,8 @@ new Vue({
 });
 
 import chai, { expect } from "chai";
-
 import spies from "chai-spies";
+chai.expect = expect;
 chai.use(spies);
 // 测试button的icon
 
@@ -112,11 +112,8 @@ chai.use(spies);
 // }
 //使用chai-spy
 {
-  //把Button对象转为构造函数
   const Constructor = Vue.extend(Button);
-  //实例化一个button
   const vm = new Constructor({
-    //使用propsData传组件属性
     propsData: {
       icon: "left",
     },
@@ -124,7 +121,6 @@ chai.use(spies);
   vm.$mount();
   let spy = chai.spy(function () {});
   vm.$on("click", spy);
-  //找到button的use标签
   let button = vm.$el;
   button.click();
   //点击后期待调用间谍

@@ -4,7 +4,7 @@
   "description": "Milk UI组件库",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "parcel build test/* --no-minify && karma start --single-run"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,16 @@
     "@vue/component-compiler-utils": "^3.2.0",
     "chai": "^4.3.0",
     "chai-spies": "^1.0.0",
+    "karma": "^6.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-chai-spies": "^0.1.4",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^2.0.1",
+    "karma-sinon-chai": "^2.0.2",
+    "mocha": "^8.3.0",
     "parcel-bundler": "^1.12.4",
+    "sinon": "^9.2.4",
+    "sinon-chai": "^3.5.0",
     "vue-template-compiler": "^2.6.12"
   },
   "alias": {

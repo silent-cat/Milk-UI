@@ -15,7 +15,11 @@
 </template>
 
 <script>
+import Icon from "./Icon";
 export default {
+  components: {
+    "m-icon": Icon,
+  },
   props: {
     icon: {},
     loading: {
