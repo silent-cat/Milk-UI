@@ -1,9 +1,10 @@
 {
-  "name": "milk-ui",
-  "version": "1.0.0",
+  "name": "milk-ui-test",
+  "version": "0.0.2",
   "description": "Milk UI组件库",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "start": "parcel index.html --no-cache",
     "test": "parcel build test/* --no-minify && karma start --single-run"
   },
   "repository": {

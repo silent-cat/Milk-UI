@@ -6,15 +6,15 @@ export default {
   mounted() {
     // 检测m - button - group的子元素是不是m - button
     for (let node of this.$el.children) {
-      let name = node.nodeName.toLowerCase();
-      if (name !== "button") {
+      let name = node.nodeName.toLowerCase()
+      if (name !== 'button') {
         console.warn(
           `m-button-group的子元素应该都是m-button,但是你写的是${name}`
-        );
+        )
       }
     }
-  },
-};
+  }
+}
 </script>
 
 <style lang="scss">

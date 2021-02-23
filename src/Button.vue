@@ -1,6 +1,6 @@
 <template>
   <button
-    class="m-button"
+    class="m-button test-link"
     :class="{ [`icon-${iconPosition}`]: true }"
     @click="$emit('click')"
   >
@@ -15,27 +15,27 @@
 </template>
 
 <script>
-import Icon from "./Icon";
+import Icon from './Icon'
 export default {
   components: {
-    "m-icon": Icon,
+    'm-icon': Icon
   },
   props: {
     icon: {},
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     iconPosition: {
       type: String,
-      default: "left",
+      default: 'left',
       // 对传入的不合法iconPositon进行校验
       validator(val) {
-        return val === "left" || val === "right";
-      },
-    },
-  },
-};
+        return val === 'left' || val === 'right'
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss">

@@ -4,9 +4,10 @@
   </svg>
 </template>
 <script>
+import './svg.js'
 export default {
-  props: ["name"],
-};
+  props: ['name']
+}
 </script>
 <style lang="scss">
 .m-icon {
