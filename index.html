@@ -26,22 +26,37 @@
 
 <body>
     <div id="app">
-        <m-button @click="loading1=!loading1" :loading="loading1">
-            按钮1
-        </m-button>
-        <m-button icon="left">按钮2</m-button>
-        <m-button icon="right" icon-position="right">按钮2</m-button>
-        <m-button loading>加载</m-button>
-        <m-button :loading="true">加载</m-button>
-        <m-button :loading="false">加载</m-button>
+
+        <div class="box">
+            <m-input></m-input>
+
+            <m-input value="默认"></m-input>
+            <m-input value="禁用" disabled></m-input>
+            <m-input value="只读" readonly></m-input>
+            <m-input value="" error="有错误"></m-input>
+            <m-input v-model="mes"></m-input>
+            <div>{{mes}}</div>
+            <m-input @input="test"></m-input>
+        </div>
+        <div class="box">
+            <m-button @click="loading1=!loading1" :loading="loading1">
+                按钮1
+            </m-button>
+            <m-button icon="left">按钮2</m-button>
+            <m-button icon="right" icon-position="right">按钮2</m-button>
+            <m-button loading>加载</m-button>
+            <m-button :loading="true">加载</m-button>
+            <m-button :loading="false">加载</m-button>
 
 
-        <m-button-group>
-            <m-button icon="left">上一页</m-button>
-            <m-button>组合1</m-button>
-            <m-button icon="right" icon-position="right">下一页</m-button>
-        </m-button-group>
+            <m-button-group>
+                <m-button icon="left">上一页</m-button>
+                <m-button>组合1</m-button>
+                <m-button icon="right" icon-position="right">下一页</m-button>
+            </m-button-group>
+        </div>
     </div>
 </body>
 <script src="./src/app.js"></script>
+
 </html>

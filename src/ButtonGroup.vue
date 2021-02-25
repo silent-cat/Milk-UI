@@ -1,15 +1,16 @@
 <template>
-  <div class="m-button-group"><slot /></div>
+  <div class="button-group"><slot /></div>
 </template>
 <script>
 export default {
+  name:'milk-button-group',
   mounted() {
     // 检测m - button - group的子元素是不是m - button
     for (let node of this.$el.children) {
       let name = node.nodeName.toLowerCase()
       if (name !== 'button') {
         console.warn(
-          `m-button-group的子元素应该都是m-button,但是你写的是${name}`
+          `button-group的子元素应该都是m-button,但是你写的是${name}`
         )
       }
     }
@@ -17,12 +18,12 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $border-radius: 4px;
-.m-button-group {
+.button-group {
   display: inline-flex;
   vertical-align: middle;
-  > .m-button {
+  > .button {
     border-radius: 0;
     /* 合并边距 */
     &:not(:first-child) {

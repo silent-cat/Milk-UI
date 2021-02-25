@@ -4,30 +4,32 @@
 
 ## 介绍
 
+一款基于 Vue 开发的 UI 组件库
+
 ## 开始使用
 
 1. 添加 css
-    使用本框架前，请在 css 中开启 border-box
-    ```
-    *,*::before,*::after{box-sizing:border-box}
-    ```
+   使用本框架前，请在 css 中开启 border-box
+   ```
+   *,*::before,*::after{box-sizing:border-box}
+   ```
 2. 安装
 
-    ```
-    npm install milk-ui-test
-    ```
+   ```
+   npm install milk-ui-test
+   ```
 
 3. 引入 milk-ui-test
 
-    ```
-    import {Button} from 'milk-ui-test'
-    import 'milk-ui-test/dist/index.css'
-    export default {
-    components: {
-        'm-button':Button
-    }
-    }
-    ```
+   ```
+   import {Button} from 'milk-ui-test'
+   import 'milk-ui-test/dist/index.css'
+   export default {
+   components: {
+       'm-button':Button
+   }
+   }
+   ```
 
 ## 文档
 

@@ -1,6 +1,6 @@
 <template>
   <button
-    class="m-button test-link"
+    class="button test-link"
     :class="{ [`icon-${iconPosition}`]: true }"
     @click="$emit('click')"
   >
@@ -17,6 +17,7 @@
 <script>
 import Icon from './Icon'
 export default {
+  name: 'milk-button',
   components: {
     'm-icon': Icon
   },
@@ -38,9 +39,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // 按钮样式
-.m-button {
+.button {
   padding: 0 1em;
   display: inline-flex;
   justify-content: center;
