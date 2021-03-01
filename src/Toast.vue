@@ -74,6 +74,7 @@ export default {
     },
     close() {
       this.$el.remove()
+      this.$emit('close')
       this.$destroy()
     },
     onClickClose() {
@@ -94,6 +95,7 @@ $font-size: 14px;
 $font-color: #fff;
 $toast-min-height: 40px;
 $toast-bg: #3b3c3d;
+
 .milk-toast {
   line-height: 1.8;
   display: flex;
@@ -108,7 +110,7 @@ $toast-bg: #3b3c3d;
   min-height: $toast-min-height;
   background: $toast-bg;
   border-radius: 4px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+  // box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
   .milk-message {
     padding: 6px 0;
   }
@@ -122,15 +124,47 @@ $toast-bg: #3b3c3d;
     border-left: 1px solid #666;
     margin-left: 16px;
   }
+  @keyframes slide-down {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-50%, 0%);
+    }
+  }
   &.position-top {
+    animation: slide-down 1s;
     top: 0;
     transform: translateX(-50%);
   }
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-50%, -100%);
+    }
+  }
   &.position-bottom {
+    animation: slide-up 1s;
     top: 100%;
-    transform: translate(-50%,-100%);
+    transform: translate(-50%, -100%);
+  }
+  @keyframes fade-in{
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   &.position-center {
+    animation: fade-in 1s;
+    
     top: 50%;
     transform: translate(-50%, -50%);
   }
