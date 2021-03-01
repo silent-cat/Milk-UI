@@ -27,6 +27,7 @@ new Vue({
     },
     showToast() {
       this.$toast('<strong>加粗</strong>', {
+        position:'top',
         closeButton: {
           text: 'close',
           callback(toast) {
@@ -34,6 +35,7 @@ new Vue({
             console.log('用户知道了')
           }
         },
+        autoClose:false,
         enableHtml:true
       })
     }

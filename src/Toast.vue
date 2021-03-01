@@ -1,5 +1,5 @@
 <template>
-  <div class="milk-toast" ref="toast">
+  <div class="milk-toast" ref="toast" :class="toastClasses">
     <div class="milk-message">
       <slot v-if="!enableHtml"></slot>
       <div v-else v-html="$slots.default[0]"></div>
@@ -35,6 +35,13 @@ export default {
     enableHtml: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator(val) {
+        return ['top', 'bottom', 'center'].indexOf(val) >= 0
+      }
     }
   },
   created() {
@@ -43,6 +50,13 @@ export default {
   mounted() {
     this.updateStyles()
     this.execAutoClose()
+  },
+  computed: {
+    toastClasses() {
+      return {
+        [`position-${this.position}`]: true
+      }
+    }
   },
   methods: {
     execAutoClose() {
@@ -94,19 +108,31 @@ $toast-bg: #3b3c3d;
   min-height: $toast-min-height;
   background: $toast-bg;
   border-radius: 4px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
-  .milk-message{
+  // box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+  .milk-message {
     padding: 6px 0;
   }
-}
-.milk-close {
-  padding-left: 16px;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-.milk-line {
-  height: 100%;
-  border-left: 1px solid #666;
-  margin-left: 16px;
+  .milk-close {
+    padding-left: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .milk-line {
+    height: 100%;
+    border-left: 1px solid #666;
+    margin-left: 16px;
+  }
+  &.position-top {
+    top: 0;
+    transform: translateX(-50%);
+  }
+  &.position-bottom {
+    top: 100%;
+    transform: translate(-50%,-100%);
+  }
+  &.position-center {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>
