@@ -108,7 +108,7 @@ $toast-bg: #3b3c3d;
   min-height: $toast-min-height;
   background: $toast-bg;
   border-radius: 4px;
-  // box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
   .milk-message {
     padding: 6px 0;
   }

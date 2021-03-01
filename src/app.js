@@ -26,8 +26,8 @@ new Vue({
       console.log(111)
     },
     showToast() {
-      this.$toast('<strong>加粗</strong>', {
-        position:'top',
+      this.$toast(`${parseInt(Math.random(10)*100)}`, {
+        position:'center',
         closeButton: {
           text: 'close',
           callback(toast) {
