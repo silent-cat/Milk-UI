@@ -1,22 +1,41 @@
-import Vue from "vue";
-import Button from "./Button";
-import Icon from "./Icon";
-import ButtonGroup from "./ButtonGroup";
+import Vue from 'vue'
+import Button from './Button'
+import Icon from './Icon'
+import ButtonGroup from './ButtonGroup'
 import Input from './Input'
+import Toast from './Toast'
+import plugin from './plugin.js'
 
-Vue.component("m-button", Button);
-Vue.component("m-icon", Icon);
-Vue.component("m-button-group", ButtonGroup);
-Vue.component('m-input',Input)
+Vue.component('m-button', Button)
+Vue.component('m-icon', Icon)
+Vue.component('m-button-group', ButtonGroup)
+Vue.component('m-input', Input)
+Vue.component('m-toast', Toast)
+Vue.use(plugin)
 new Vue({
-  el: "#app",
+  el: '#app',
   data: {
     loading1: false,
-    mes:''
+    mes: ''
   },
-  methods:{
-    test(){
-      console.log(111);
+  created() {
+    this.showToast()
+  },
+  methods: {
+    test() {
+      console.log(111)
+    },
+    showToast() {
+      this.$toast('<strong>加粗</strong>', {
+        closeButton: {
+          text: 'close',
+          callback(toast) {
+            toast.log()
+            console.log('用户知道了')
+          }
+        },
+        enableHtml:true
+      })
     }
   }
-});
+})
