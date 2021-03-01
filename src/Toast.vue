@@ -1,11 +1,11 @@
 <template>
-  <div class="milk-toast" ref="toast" :class="toastClasses">
-    <div class="milk-message">
+  <div class="toast" ref="toast" :class="toastClasses">
+    <div class="message">
       <slot v-if="!enableHtml"></slot>
       <div v-else v-html="$slots.default[0]"></div>
     </div>
-    <div class="milk-line" ref="line"></div>
-    <span v-if="closeButton" @click="onClickClose" class="milk-close">
+    <div class="line" ref="line"></div>
+    <span v-if="closeButton" @click="onClickClose" class="close">
       {{ closeButton.text }}
     </span>
   </div>
@@ -13,16 +13,20 @@
 
 <script>
 export default {
-  name: 'milk-toast',
+  name: 'toast',
   props: {
     autoClose: {
-      type: Boolean,
-      default: true
+      type: [Boolean, Number],
+      default: 5,
+      validator(val) {
+        console.log(val);
+        return val === false || typeof val === 'number'
+      }
     },
-    autoCloseDelay: {
-      type: Number,
-      default: 500
-    },
+    // autoCloseDelay: {
+    //   type: Number,
+    //   default: 5
+    // },
     closeButton: {
       type: Object,
       default: () => {
@@ -63,7 +67,7 @@ export default {
       if (this.autoClose) {
         setTimeout(() => {
           this.close()
-        }, this.autoCloseDelay * 1000)
+        }, this.autoClose * 1000)
       }
     },
     updateStyles() {
@@ -96,7 +100,7 @@ $font-color: #fff;
 $toast-min-height: 40px;
 $toast-bg: #3b3c3d;
 
-.milk-toast {
+.toast {
   line-height: 1.8;
   display: flex;
   align-items: center;
@@ -111,15 +115,15 @@ $toast-bg: #3b3c3d;
   background: $toast-bg;
   border-radius: 4px;
   // box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
-  .milk-message {
+  .message {
     padding: 6px 0;
   }
-  .milk-close {
+  .close {
     padding-left: 16px;
     flex-shrink: 0;
     cursor: pointer;
   }
-  .milk-line {
+  .line {
     height: 100%;
     border-left: 1px solid #666;
     margin-left: 16px;
@@ -154,7 +158,7 @@ $toast-bg: #3b3c3d;
     top: 100%;
     transform: translate(-50%, -100%);
   }
-  @keyframes fade-in{
+  @keyframes fade-in {
     0% {
       opacity: 0;
     }
@@ -164,7 +168,7 @@ $toast-bg: #3b3c3d;
   }
   &.position-center {
     animation: fade-in 1s;
-    
+
     top: 50%;
     transform: translate(-50%, -50%);
   }

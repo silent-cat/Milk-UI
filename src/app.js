@@ -26,7 +26,7 @@ new Vue({
       console.log(111)
     },
     showToast(position) {
-      this.$toast(`${parseInt(Math.random(10)*100)}`, {
+      this.$toast(`${parseInt(Math.random(10) * 100)}`, {
         position,
         closeButton: {
           text: 'center',
@@ -35,18 +35,18 @@ new Vue({
             console.log('用户知道了')
           }
         },
-        autoClose:false,
-        enableHtml:true
+        autoClose: 3,
+        enableHtml: true
       })
     },
 
-    showToastTop(){
+    showToastTop() {
       this.showToast('top')
     },
-    showToastBottom(){
+    showToastBottom() {
       this.showToast('bottom')
     },
-    showToastCenter(){
+    showToastCenter() {
       this.showToast('center')
     }
   }
